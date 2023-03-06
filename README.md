@@ -345,6 +345,7 @@ now change from root to your user
 
 - :arrow_right: [here](./extra/nginx.conf)
 
+> :bulb: don't forget to replace the certificate name and key in the config file with the one you choose in the openssl cmd
 > :bulb: you can skip this step and just link the configuration file through volumes in the docker-compose.yml file
 
 > **:warning: check if the configuration file is valid by running `nginx -t`**
