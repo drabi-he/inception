@@ -311,7 +311,8 @@ now change from root to your user
     apk add nginx openssl --no-cache
 
 **extra**
-mkdir -p /etc/nginx/ssl
+
+    mkdir -p /etc/nginx/ssl
 
 ### 3. Create a self-signed certificate
 
