@@ -402,7 +402,7 @@ from your host machine, open your browser and go to `https://localhost:[host_por
 
     RUN openssl req -x509 -new -newkey rsa:2048 -nodes -keyout /etc/ssl/private/[anything].key -out /etc/ssl/private/[anything].crt -subj "/C=[XX]/ST=[XXXXXXXXX]/L=[XXXXX]/O=[XXXXXXXXXX]/OU=[XXX]/CN=[XXXXX]"
 
-    COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+    COPY ./conf/nginx.conf:/etc/nginx/sites-available/default
 
     EXPOSE 443
 
@@ -1175,7 +1175,8 @@ and add the following lines
         networks:
           - inception
         volumes:
-          - ./requirements/nginx/conf/:/etc/nginx/http.d/
+          - ./requirements/nginx/conf/:/etc/nginx/http.d/ # for alpine
+            - ./requirements/nginx/conf/nginx.conf:/etc/nginx/sites-available/default # for debian
           - ./requirements/tools:/etc/nginx/ssl/
           - wp-data:/var/www/
         restart: always
