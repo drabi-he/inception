@@ -419,7 +419,7 @@ from your host machine, open your browser and go to `https://localhost:[host_por
     RUN openssl req -x509 -new -newkey rsa:2048 -nodes -keyout /etc/ssl/private/[anything].key -out /etc/ssl/private/[anything].crt -subj "/C=[XX]/ST=[XXXXXXXXX]/L=[XXXXX]/O=[XXXXXXXXXX]/OU=[XXX]/CN=[XXXXX]"
 
     # we copy the local configuration file to the container nginx folder
-    COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+    COPY ./conf/* /etc/nginx/http.d/
 
     EXPOSE 443
 
